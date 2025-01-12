@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoT Risk Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>IoT Rule Risk Dashboard</h1>
+    <h2>Detected Risks:</h2>
+
+    {% if risks %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Rule Description</th>
+                    <th>Detected Risk</th>
+                    <th>Confidence</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for risk in risks %}
+                    <tr>
+                        <td>{{ risk.Description }}</td>
+                        <td>{{ risk.Risk }}</td>
+                        <td>{{ risk.Confidence }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No risks detected.</p>
+    {% endif %}
+</body>
+</html>

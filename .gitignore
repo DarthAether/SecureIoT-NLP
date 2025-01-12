@@ -1,0 +1,3 @@
+secureiot-env/ 
+*.pyc 
+__pycache__/ 
